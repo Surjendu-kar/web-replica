@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import VectorIcon from "../assets/Vector.png";
 import FrameIcon from "../assets/Frame.png";
 import ScrollIcon from "../assets/Rectangle.png";
-
 
 const tabs = ["About Me", "Experiences", "Recommended"];
 
