@@ -1,28 +1,38 @@
-interface Props {
+interface HeaderProps {
   onScroll: (direction: "left" | "right") => void;
+  onAddImage: () => void;
 }
 
-const GalleryHeader: React.FC<Props> = ({ onScroll }) => (
+const GalleryHeader: React.FC<HeaderProps> = ({ onScroll, onAddImage }) => (
   <div className="flex justify-between items-center mb-4 p-1.5">
     <button className="bg-[#171717] text-white w-[150px] h-[62px] rounded-[20px] text-lg font-semibold">
       Gallery
     </button>
     <div className="flex items-center space-x-4">
-      <AddImageButton />
+      <AddImageButton onAddImage={onAddImage} />
       <ScrollButtons onScroll={onScroll} />
     </div>
   </div>
 );
 
-const AddImageButton: React.FC = () => (
-  <button className="relative bg-[#4A4B53] text-white px-5 py-4 rounded-full text-sm font-semibold flex items-center shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] hover:shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.2)] transition-shadow duration-300 overflow-hidden">
+interface AddImageButtonProps {
+  onAddImage: () => void;
+}
+
+const AddImageButton: React.FC<AddImageButtonProps> = ({ onAddImage }) => (
+  <button
+    onClick={onAddImage}
+    className="relative bg-[#4A4B53] text-white px-5 py-4 rounded-full text-sm font-semibold flex items-center shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] hover:shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.2)] transition-shadow duration-300 overflow-hidden"
+  >
     <span className="relative z-10 mr-1">+</span>
     <span className="relative z-10">ADD IMAGE</span>
     <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
   </button>
 );
 
-const ScrollButtons: React.FC<Props> = ({ onScroll }) => (
+const ScrollButtons: React.FC<{ onScroll: HeaderProps["onScroll"] }> = ({
+  onScroll,
+}) => (
   <div className="flex space-x-2">
     {(["left", "right"] as const).map((direction) => (
       <button
