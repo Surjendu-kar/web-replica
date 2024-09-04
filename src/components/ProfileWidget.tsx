@@ -69,7 +69,7 @@ const ProfileWidget = () => {
           </p>
         </div>
       </div>
-      <div className="w-[50px] py-4 flex flex-col items-center justify-center">
+      <div className="w-[40px] py-4 flex flex-col items-center justify-center">
         <img src={ScrollIcon} alt="Grid" className="w-[12px] h-[64px]" />
       </div>
     </div>

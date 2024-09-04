@@ -1,14 +1,28 @@
+import React, { useRef } from "react";
 import VectorIcon from "../assets/Vector.png";
 import FrameIcon from "../assets/Frame.png";
 import BlackImg from "../assets/DefaultImg.png";
 import ColorfulImg from "../assets/Colourful-Img.jpeg";
 
 const GalleryWidget = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
   const images = [
     { black: BlackImg, color: ColorfulImg },
     { black: BlackImg, color: ColorfulImg },
     { black: BlackImg, color: ColorfulImg },
+    { black: BlackImg, color: ColorfulImg },
   ];
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 220;
+      scrollContainerRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <div className="flex bg-box-bg rounded-[18.89px] w-[720px] h-[310px]">
@@ -17,9 +31,9 @@ const GalleryWidget = () => {
         <img src={FrameIcon} alt="Scroll" className="w-[22px] h-[34px]" />
       </div>
 
-      <div className="flex-1 py-4 pr-4">
+      <div className="flex-1 py-4 overflow-hidden">
         <div className="flex justify-between items-center mb-4 p-1.5">
-          <button className="bg-[#171717] text-white w-[150px] h-[62px] rounded-[20px] text-xl font-semibold">
+          <button className="bg-[#171717] text-white w-[150px] h-[62px] rounded-[20px] text-lg font-semibold">
             Gallery
           </button>
           <div className="flex items-center space-x-4">
@@ -27,21 +41,33 @@ const GalleryWidget = () => {
               <span className="mr-2">+</span> ADD IMAGE
             </button>
             <div className="flex space-x-2">
-              <button className="bg-[#303439] text-[#6F787C] w-12 h-12 rounded-full flex items-center justify-center text-2xl">
+              <button
+                onClick={() => scroll("left")}
+                className="bg-[#303439] hover:bg-[#96BEE7] text-[#6F787C] hover:text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl transition-colors duration-300"
+              >
                 &#8592;
               </button>
-              <button className="bg-[#303439] text-[#6F787C] w-12 h-12 rounded-full flex items-center justify-center text-2xl">
+              <button
+                onClick={() => scroll("right")}
+                className="bg-[#303439] hover:bg-[#96BEE7] text-[#6F787C] hover:text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl transition-colors duration-300"
+              >
                 &#8594;
               </button>
             </div>
           </div>
         </div>
-
-        <div className="flex space-x-4 overflow-x-auto">
+        <div
+          ref={scrollContainerRef}
+          className="flex space-x-4 overflow-x-auto scrollbar-hide"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+        >
           {images.map((img, index) => (
             <div
               key={index}
-              className="relative w-[200px] h-[180px] overflow-hidden rounded-lg group"
+              className="relative w-[200px] h-[180px] overflow-hidden rounded-lg group flex-shrink-0"
             >
               <img
                 src={img.black}
@@ -58,7 +84,7 @@ const GalleryWidget = () => {
         </div>
       </div>
 
-      <div className="w-[50px] py-4 flex flex-col items-center justify-center"></div>
+      <div className="w-[40px] py-4 flex flex-col items-center justify-center"></div>
     </div>
   );
 };
