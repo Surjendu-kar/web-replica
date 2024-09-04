@@ -37,8 +37,10 @@ const GalleryWidget = () => {
             Gallery
           </button>
           <div className="flex items-center space-x-4">
-            <button className="bg-[#4A4B53] text-white px-5 py-4 rounded-full text-sm font-semibold flex items-center">
-              <span className="mr-2">+</span> ADD IMAGE
+            <button className="relative bg-[#4A4B53] text-white px-5 py-4 rounded-full text-sm font-semibold flex items-center shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] hover:shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.2)] transition-shadow duration-300 overflow-hidden">
+              <span className="relative z-10 mr-1">+</span>
+              <span className="relative z-10">ADD IMAGE</span>
+              <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent"></div>
             </button>
             <div className="flex space-x-2">
               <button
