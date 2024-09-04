@@ -1,6 +1,6 @@
 import React from "react";
-import ProfileWidget from "./components/ProfileWidget";
-import GalleryWidget from "./components/GalleryWidget";
+import ProfileWidget from "./components/ProfileWidget/ProfileWidget";
+import GalleryWidget from "./components/GalleryWidget/GalleryWidget";
 import HrLine from "../src/assets/HrLine.png";
 
 const App: React.FC = () => {
