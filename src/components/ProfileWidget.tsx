@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import VectorIcon from "../assets/Vector.png";
 import FrameIcon from "../assets/Frame.png";
 import ScrollIcon from "../assets/Rectangle.png";
