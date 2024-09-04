@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import VectorIcon from "../assets/Vector.png";
 import FrameIcon from "../assets/Frame.png";
 import BlackImg from "../assets/DefaultImg.png";
