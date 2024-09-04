@@ -45,15 +45,21 @@ const GalleryWidget = () => {
             <div className="flex space-x-2">
               <button
                 onClick={() => scroll("left")}
-                className="bg-[#303439] hover:bg-[#96BEE7] text-[#6F787C] hover:text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl transition-colors duration-300"
+                className="relative bg-[#303439] w-12 h-12 rounded-full flex items-center justify-center text-2xl transition-colors duration-300 overflow-hidden group"
               >
-                &#8592;
+                <span className="relative z-10 text-[#6F787C] group-hover:text-white transition-colors duration-300">
+                  &#8592;
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               <button
                 onClick={() => scroll("right")}
-                className="bg-[#303439] hover:bg-[#96BEE7] text-[#6F787C] hover:text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl transition-colors duration-300"
+                className="relative bg-[#303439] w-12 h-12 rounded-full flex items-center justify-center text-2xl transition-colors duration-300 overflow-hidden group"
               >
-                &#8594;
+                <span className="relative z-10 text-[#6F787C] group-hover:text-white transition-colors duration-300">
+                  &#8594;
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
             </div>
           </div>
