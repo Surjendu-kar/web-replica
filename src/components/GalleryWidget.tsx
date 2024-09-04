@@ -11,15 +11,15 @@ const GalleryWidget = () => {
   ];
 
   return (
-    <div className="flex bg-box-bg rounded-[18.89px] w-[720px] h-[330px]">
+    <div className="flex bg-box-bg rounded-[18.89px] w-[720px] h-[310px]">
       <div className="w-[50px] h-[170px] py-4 flex flex-col items-center justify-between">
         <img src={VectorIcon} alt="Grid" className="w-[24px] h-[24px]" />
         <img src={FrameIcon} alt="Scroll" className="w-[22px] h-[34px]" />
       </div>
 
       <div className="flex-1 py-4 pr-4">
-        <div className="flex justify-between items-center mb-4">
-          <button className="bg-main text-white w-[150px] h-[62px] rounded-[20px] text-sm font-semibold">
+        <div className="flex justify-between items-center mb-4 p-1.5">
+          <button className="bg-[#171717] text-white w-[150px] h-[62px] rounded-[20px] text-xl font-semibold">
             Gallery
           </button>
           <div className="flex items-center space-x-4">
@@ -27,17 +27,17 @@ const GalleryWidget = () => {
               <span className="mr-2">+</span> ADD IMAGE
             </button>
             <div className="flex space-x-2">
-              <button className="bg-[#303439] text-white w-8 h-8 rounded-full flex items-center justify-center">
+              <button className="bg-[#303439] text-[#6F787C] w-12 h-12 rounded-full flex items-center justify-center text-2xl">
                 &#8592;
               </button>
-              <button className="bg-[#303439] text-white w-8 h-8 rounded-full flex items-center justify-center">
+              <button className="bg-[#303439] text-[#6F787C] w-12 h-12 rounded-full flex items-center justify-center text-2xl">
                 &#8594;
               </button>
             </div>
           </div>
         </div>
 
-        <div className="flex space-x-4 overflow-x-auto pb-2">
+        <div className="flex space-x-4 overflow-x-auto">
           {images.map((img, index) => (
             <div
               key={index}
